@@ -1,0 +1,20 @@
+""" db module
+Author: Dionylon Briones
+Date Created: November 16, 2008
+"""
+from sqlalchemy import create_engine, MetaData
+from sqlalchemy.orm import sessionmaker
+
+class _DB:
+        def __init__(self):
+			print "initializing database"
+			self.engine = create_engine('firebird://SYSDBA:masterkey@localhost/c:/maelisa2/db/MAELISA2.GDB')
+			self.meta = MetaData(self.engine)
+
+			self.session = sessionmaker()
+			self.session.configure(bind=self.engine)
+
+_db = _DB()
+def db(): return _db
+def get_meta(): return _db.meta
+def get_session(): return _db.session

@@ -1,0 +1,3 @@
+from maelisapy import init_maelisadb
+from maelisapy.catalog import CatalogController
+init_maelisadb()

@@ -1,0 +1,7 @@
+from sqlalchemy import create_engine
+from maelisapy.model import init_model
+
+def connectdb():
+	engine = create_engine('firebird://SYSDBA:masterkey@localhost/c:/maelisa2/db/MAELISA2.GDB')
+	init_model(engine)
+
